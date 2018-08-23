@@ -1,0 +1,32 @@
+server:
+  port: 8052
+    
+eureka:
+  instance:
+    hostname: localhost
+    port: 8051
+  client:
+    registerWithEureka: true
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${eureka.instance.port}/eureka/
+  server:
+    wait-time-in-ms-when-sync-empty: 3000
+
+zuul:
+  routes:
+    oauth:
+      path: oauth/token/**
+      url: http://localhost:8053/oauth/token
+    search:
+      path: search/**
+      url: http://localhost:8054/v1/api/top/search
+    followers:
+      path: tops/followers/**
+      url: http://localhost:8054/v1/api/top/followers
+    hours:
+      path: tops/hours/**
+      url: http://localhost:8054/v1/api/top/hours
+    country:
+      path: tops/country/**
+      url: http://localhost:8054/v1/api/top/country

@@ -1,0 +1,39 @@
+server:
+  port: 8053
+
+eureka:
+  instance:
+    hostname: localhost
+    port: 8051
+  client:
+    registerWithEureka: true
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${eureka.instance.port}/eureka/
+  server:
+    wait-time-in-ms-when-sync-empty: 3000
+
+spring:
+  datasource:
+    url: jdbc:h2:file:~/h2/twauthdb-v2;DB_CLOSE_ON_EXIT=TRUE
+    username: sa
+    password: h2
+    driverClassName: org.h2.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: none
+    properties:
+      hibernate:
+        show_sql: true
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: DEBUG
+        type:
+      descriptor:
+        sql:
+        BasicBinder: TRACE
+oauth:
+  secret: MYS3CRt%02313997821OuahWt
