@@ -15,9 +15,10 @@ eureka:
 
 zuul:
   routes:
-    my-auth:
-      path: login/**
+    login-auth:
+      path: /oauth/token/**
       url: http://localhost:8053/oauth/token
+      sensitive-headers: Set-Cookie,Authorization
     search:
       path: /search/**
       url: http://localhost:8054/v1/api/top/search
