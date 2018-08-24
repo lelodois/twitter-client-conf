@@ -1,10 +1,10 @@
 server:
-  port: 8052
+  port: 8092
     
 eureka:
   instance:
-    hostname: localhost
-    port: 8051
+    hostname: 127.0.0.1
+    port: 8091
   client:
     registerWithEureka: true
     fetchRegistry: false
@@ -15,19 +15,23 @@ eureka:
 
 zuul:
   routes:
-    login-auth:
+    auth-login:
       path: /oauth/token/**
-      url: http://localhost:8053/oauth/token
+      url: http://localhost:8093/oauth/token
+      sensitive-headers: Cookie,Set-Cookie
+    auth-user:
+      path: /oauth/user/**
+      url: http://localhost:8093/user
       sensitive-headers: Cookie,Set-Cookie
     search:
       path: /search/**
-      url: http://localhost:8054/v1/api/top/search
+      url: http://localhost:8094/v1/api/top/search
     followers:
       path: tops/followers/**
-      url: http://localhost:8054/v1/api/top/followers
+      url: http://localhost:8094/v1/api/top/followers
     hours:
       path: tops/hours/**
-      url: http://localhost:8054/v1/api/top/hours
+      url: http://localhost:8094/v1/api/top/hours
     country:
       path: tops/country/**
-      url: http://localhost:8054/v1/api/top/country
+      url: http://localhost:8094/v1/api/top/country
