@@ -15,11 +15,13 @@ eureka:
 
 zuul:
   routes:
-    oauth:
-      path: login/**
+    my-auth:
+      path: /login/**
       url: http://localhost:8053/oauth/
+      ensitiveHeaders: Cookie,Set-Cookie
+      stripPrefix: false
     search:
-      path: search/**
+      path: /search/**
       url: http://localhost:8054/v1/api/top/search
     followers:
       path: tops/followers/**
