@@ -16,8 +16,8 @@ eureka:
 zuul:
   routes:
     oauth:
-      path: oauth/token/**
-      url: http://localhost:8053/oauth/token
+      path: login/**
+      url: http://localhost:8053/oauth/
     search:
       path: search/**
       url: http://localhost:8054/v1/api/top/search
