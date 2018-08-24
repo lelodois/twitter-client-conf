@@ -3,7 +3,7 @@ server:
 
 eureka:
   instance:
-    hostname: localhost
+    hostname: 172.18.0.21
     port: 8091
   client:
     registerWithEureka: true
