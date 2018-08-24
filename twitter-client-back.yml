@@ -2,7 +2,7 @@ server:
   port: 8094
 
 gateway:
-  hostname: 172.18.0.20
+  hostname: 172.18.0.22
 
 eureka:
   instance:
