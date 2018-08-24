@@ -3,7 +3,7 @@ server:
     
 eureka:
   instance:
-    hostname: 127.0.0.1
+    hostname: 172.18.0.21
     port: 8091
   client:
     registerWithEureka: true
@@ -17,21 +17,21 @@ zuul:
   routes:
     auth-login:
       path: /oauth/token/**
-      url: http://localhost:8093/oauth/token
+      url: http://172.18.0.23:8093/oauth/token
       sensitive-headers: Cookie,Set-Cookie
     auth-user:
       path: /oauth/user/**
-      url: http://localhost:8093/user
+      url: http://172.18.0.23:8093/user
       sensitive-headers: Cookie,Set-Cookie
     search:
       path: /search/**
-      url: http://localhost:8094/v1/api/top/search
+      url: http://172.18.0.24:8094/v1/api/top/search
     followers:
       path: tops/followers/**
-      url: http://localhost:8094/v1/api/top/followers
+      url: http://172.18.0.24:8094/v1/api/top/followers
     hours:
       path: tops/hours/**
-      url: http://localhost:8094/v1/api/top/hours
+      url: http://172.18.0.24:8094/v1/api/top/hours
     country:
       path: tops/country/**
-      url: http://localhost:8094/v1/api/top/country
+      url: http://172.18.0.24:8094/v1/api/top/country
