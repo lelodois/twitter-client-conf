@@ -1,10 +1,22 @@
+tw-eureka-host: 172.18.0.21
+tw-eureka-port: 8091
+
+tw-gateway-host: 172.18.0.22
+tw-gateway-port: 8092
+
+tw-backend-host: 172.18.0.24
+tw-backend-port: 8094
+
+tw-auth-host: 172.18.0.23
+tw-auth-port: 8093
+
 server:
   port: 8092
     
 eureka:
   instance:
-    hostname: 172.18.0.21
-    port: 8091
+    hostname: ${tw-eureka-host}
+    port: ${tw-eureka-port}
   client:
     registerWithEureka: true
     fetchRegistry: false
@@ -17,25 +29,25 @@ zuul:
   routes:
     auth-login:
       path: /oauth/token/**
-      url: http://172.18.0.23:8093/oauth/token
+      url: http://${tw-auth-host}:${tw-auth-port}/oauth/token
       sensitive-headers: Cookie,Set-Cookie
     auth-user:
       path: /oauth/user/**
-      url: http://172.18.0.23:8093/user
+      url: http://${tw-auth-host}:${tw-auth-port}/user
       sensitive-headers: Cookie,Set-Cookie
     search:
       path: /search/**
-      url: http://172.18.0.24:8094/v1/api/top/search
+      url: http://${tw-backend-host}:${tw-backend-port}/v1/api/top/search
       sensitive-headers: Cookie,Set-Cookie
     followers:
       path: /tops/followers/**
-      url: http://172.18.0.24:8094/v1/api/top/followers
+      url: http://${tw-backend-host}:${tw-backend-port}/v1/api/top/followers
       sensitive-headers: Cookie,Set-Cookie
     hours:
       path: /tops/hours/**
-      url: http://172.18.0.24:8094/v1/api/top/hours
+      url: http://${tw-backend-host}:${tw-backend-port}/v1/api/top/hours
       sensitive-headers: Cookie,Set-Cookie
     country:
       path: /tops/country/**
-      url: http://172.18.0.24:8094/v1/api/top/country
+      url: http://${tw-backend-host}:${tw-backend-port}/v1/api/top/country
       sensitive-headers: Cookie,Set-Cookie
