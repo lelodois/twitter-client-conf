@@ -1,10 +1,15 @@
+tw-eureka-host: 172.18.0.21
+tw-eureka-port: 8091
+tw-gateway-host: 172.18.0.22
+tw-gateway-port: 8092
+
 server:
   port: 8094
 
 eureka:
   instance:
-    hostname: 172.18.0.21
-    port: 8091
+    hostname: ${tw-eureka-host}
+    port: ${tw-eureka-port}
   client:
     registerWithEureka: true
     fetchRegistry: false
@@ -16,7 +21,7 @@ eureka:
 security:
   oauth2:
     resource:
-      userInfoUri: http://172.18.0.22:8092/oauth/user
+      userInfoUri: http://${tw-gateway-host}:${tw-gateway-port}/oauth/user
       id: backend
       
 spring:
