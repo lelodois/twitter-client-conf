@@ -1,13 +1,16 @@
+tw-eureka-host: 172.18.0.21
+tw-eureka-port: 8091
+
 server:
   port: 8091
 
 eureka:
   instance:
-    hostname: 172.18.0.21
+    hostname: ${tw-eureka-host}
   client:
     registerWithEureka: true
     fetchRegistry: false
     serviceUrl:
-      defaultZone: http://localhost:${server.port}/eureka/
+      defaultZone: http://${tw-eureka-host}:${tw-eureka-port}/eureka/
   server:
     wait-time-in-ms-when-sync-empty: 3000
