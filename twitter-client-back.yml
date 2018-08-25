@@ -1,9 +1,6 @@
 server:
   port: 8094
 
-gateway:
-  hostname: 172.18.0.22
-
 eureka:
   instance:
     hostname: 172.18.0.21
@@ -16,6 +13,12 @@ eureka:
   server:
     wait-time-in-ms-when-sync-empty: 3000
   
+security:
+  oauth2:
+    resource:
+      userInfoUri: http://172.18.0.22:8092/user
+      id: backend
+      
 security:
   oauth2:
     resource:
