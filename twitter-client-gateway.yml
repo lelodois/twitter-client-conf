@@ -28,14 +28,14 @@ zuul:
       url: http://172.18.0.24:8094/v1/api/top/search
       sensitive-headers: Cookie,Set-Cookie
     followers:
-      path: tops/followers/**
+      path: /tops/followers/**
       url: http://172.18.0.24:8094/v1/api/top/followers
       sensitive-headers: Cookie,Set-Cookie
     hours:
-      path: tops/hours/**
+      path: /tops/hours/**
       url: http://172.18.0.24:8094/v1/api/top/hours
       sensitive-headers: Cookie,Set-Cookie
     country:
-      path: tops/country/**
+      path: /tops/country/**
       url: http://172.18.0.24:8094/v1/api/top/country
       sensitive-headers: Cookie,Set-Cookie
