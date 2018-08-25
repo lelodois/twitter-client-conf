@@ -16,7 +16,7 @@ eureka:
 security:
   oauth2:
     resource:
-      userInfoUri: http://172.18.0.22:8092/user
+      userInfoUri: http://172.18.0.22:8092/oauth/user
       id: backend
       
 spring:
