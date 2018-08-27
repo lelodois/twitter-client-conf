@@ -37,7 +37,7 @@ zuul:
       sensitive-headers: Cookie,Set-Cookie
     search:
       path: /search/**
-      url: http://${tw-backend-host}:${tw-backend-port}/v1/api/top/search
+      url: http://${tw-backend-host}:${tw-backend-port}/v1/api/search
       sensitive-headers: Cookie,Set-Cookie
     followers:
       path: /tops/followers/**
